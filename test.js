@@ -12,13 +12,13 @@ const wrapInDiv = str => wrapInTag(str, 'div');
 const wrapInSpan = str => wrapInTag(str, 'span');
 const toLowerCase = str => console.log('lowerCaseStr: ' + str) && str.toLowerCase();
 
-const wrapper = (tag, str) => {
-	const wrapInTag = () => `<${tag}>${str}</${tag}>`;
+const wrapper = str => {
+	const wrapInTag = (tag) => `<${tag}>${str}</${tag}>`;
 	return wrapInTag;
 }
 
 
-const pipeTransfrom = _.pipe(trim, toLowerCase, wrapper('div', input));
+const pipeTransfrom = _.pipe(trim, toLowerCase, wrapper('div'));
 
 console.log(pipeTransfrom());
 
