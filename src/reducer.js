@@ -1,11 +1,12 @@
 const { produce } = require('immer');
+const { BUG_ADDED, BUG_REMOVED } = require('./actionTypes');
 
 let lastId = 0;
 
 //pure function = no side effects
 const reducer = (state = [], action) =>  {
 	switch (action.type) {
-		case 'bugAdded':
+		case BUG_ADDED:
 			return [
 				...state,
 				{
@@ -14,7 +15,7 @@ const reducer = (state = [], action) =>  {
 					resolved: false
 				}
 			];
-		case 'bugRemoved':
+		case BUG_REMOVED:
 			return state.filter(bug => bug.id !== action.payload.id);
 		default:
 			return state;
